@@ -3,12 +3,14 @@
  */
 
 var map;
+
 var emergencies = [
     new Point(41.492009, 2.362017, "1/2/2017 1:59:30"),
     new Point(41.555833, 2.4025, "4/2/2017 1:59:30"),
     new Point(41.533333, 2.45, "6/2/2017 1:59:30"),
     new Point(41.7, 2.833333, "3/2/2017 1:59:30")
 ];
+
 var selected_date = new Date("January 1, 2017");
 var shown = [];
 
@@ -20,6 +22,21 @@ function Date_Comparator(Point1, Point2) {
 
 function candiDate(s){ selected_date = new Date(s); }
 
+function readString(pathOfFileToReadFrom){
+    var request = new XMLHttpRequest();
+    request.open("GET", pathOfFileToReadFrom, false);
+    request.send(null);
+    var returnValue = request.responseText;
+    return returnValue;
+}
+
+function get_from_database(){
+    line = readString('/database.txt');
+    while (line != null){
+        newEmergencyHandler(line.trim());
+    }
+}
+
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 9,
@@ -28,6 +45,7 @@ function initMap() {
             lng: 2.11
         }
     });
+    get_from_database();
     emergencies = emergencies.sort(Date_Comparator);
     setMarkers();
 }
@@ -61,4 +79,3 @@ function setMarkers() {
         }
     }
 }
-
