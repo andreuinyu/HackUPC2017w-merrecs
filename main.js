@@ -1,6 +1,34 @@
 /**
  * Created by andre on 03/03/2017.
  */
+
+Function string2date(s) { //s is a string that contains the date in format dd/mm/yyyy hh:mm:ss
+	var d =new Date();
+	
+	}
+ 
+//  
+ 
+class Point{
+	constructor(lat, lng, time){
+		
+		this.lat = lat;
+		this.lng = lng;
+		this.time= data(time); 
+		}
+		
+	show(){
+		var marker = new google.maps.Marker({
+            position: {lat: this.lat, lng: this.lng},
+            map: map,
+            zIndex: pupa[3],
+            draggable: false,
+		}	
+	}
+ 
+var Arrayarnos = [];
+
+ 
 var pupas = [
     ["Carlos", 41.492009, 2.362017, 1],
     ["Pavie", 41.555833, 2.4025,2],
@@ -27,5 +55,8 @@ function setMarkers(map) {
             draggable: false,
 
         });
+       
     }
 }
+
+
