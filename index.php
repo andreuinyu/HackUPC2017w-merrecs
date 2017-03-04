@@ -60,6 +60,7 @@ if (!$socket) {
   echo "$errstr ($errno)<br />\n";
 } else {
   while ($conn = stream_socket_accept($socket)) {
+    $data_in = fread($conn,50);
     fwrite($conn, 'La fecha y hora actuales es ' . date('n/j/Y g:i a') . "\n");
     fclose($conn);
   }
