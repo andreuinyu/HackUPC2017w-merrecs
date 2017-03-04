@@ -33,8 +33,16 @@
 <div id="floating-panel">
     <p>
         Emergencies since
-        <input id="slider" type="date" onchange="candiDate(this.value)"/>
+        <input id="date" type="date" onchange="candiDate(this.value)"/>
         <input id="button" type="button" onclick="setMarkers()" value="Find" />
+        <script>
+            document.getElementById("date").addEventListener("keyup", function(event) {
+                event.preventDefault();
+                if (event.keyCode == 13) {
+                    document.getElementById("button").click();
+                }
+            });
+        </script>
     </p>
 </div>
 <div id="map"></div>
