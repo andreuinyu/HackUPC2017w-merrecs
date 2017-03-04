@@ -4,13 +4,15 @@
 
 var map;
 
-var emergencies = [
+var emergencies = [];
+    /*
+    [
     new Point(41.492009, 2.362017, "1/2/2017 1:59:30"),
     new Point(41.555833, 2.4025, "4/2/2017 1:59:30"),
     new Point(41.533333, 2.45, "6/2/2017 1:59:30"),
     new Point(41.7, 2.833333, "3/2/2017 1:59:30")
 ];
-
+*/
 var selected_date = new Date("January 1, 2017");
 var shown = [];
 
@@ -22,18 +24,15 @@ function Date_Comparator(Point1, Point2) {
 
 function candiDate(s){ selected_date = new Date(s); }
 
-function readString(pathOfFileToReadFrom){
-    var request = new XMLHttpRequest();
-    request.open("GET", pathOfFileToReadFrom, false);
-    request.send(null);
-    var returnValue = request.responseText;
-    return returnValue;
-}
-
 function get_from_database(){
-    line = readString('/database.txt');
-    while (line != null){
-        newEmergencyHandler(line.trim());
+    var obj = document.getElementById("database");
+    var raw_str = obj.contentWindow.document.body.childNodes[0].innerHTML;
+    while (raw_str.indexOf("\r") >= 0) {
+        raw_str = raw_str.replace("\r", "");
+    }
+    var lines = raw_str.split("\n");
+    for (var i = 0; i < lines.length;i++){
+        newEmergencyHandler(lines[i]);
     }
 }
 
@@ -47,7 +46,7 @@ function initMap() {
     });
     //var text = $('database.txt').text()
     //console.log(text);
-    //get_from_database();
+    get_from_database();
     emergencies = emergencies.sort(Date_Comparator);
     setMarkers();
 }

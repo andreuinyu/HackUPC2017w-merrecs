@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<iframe id="database" src="database.txt" style="display: none;"></iframe>
 <head>
     <link rel="icon"
           type="image/gif"
@@ -63,7 +64,6 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script language="javascript" type="text/javascript" src="point.js"></script>
 <script language="javascript" type="text/javascript" src="main.js"></script>
-<object id="database" data="database.txt" type="text/plain"></object>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAVldevQ9URKGx2yxZ4or9YdBtdnmkjh8&callback=initMap&language=en">
 </script>
 </body>
