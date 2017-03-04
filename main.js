@@ -4,7 +4,16 @@
 
 Function string2date(s) { //s is a string that contains the date in format dd/mm/yyyy hh:mm:ss
 	var d =new Date();
-	
+	//4/2/2017 1:59:30
+	var date_hour = s.split(" ");
+	var date = date_hour[0].split("/");
+	var hour = date_hour[1].split(":");
+	d.setDay(parseInt(date[0]);
+	d.setMonth(parseInt(date[1]);
+	d.setYear(parseInt(date[2]);
+	d.setHour(parseInt(hour[0]);
+	d.setMinute(parseInt(hour[1]);
+	d.setSeconds(parseInt(hour[2]);
 	}
  
 //  
