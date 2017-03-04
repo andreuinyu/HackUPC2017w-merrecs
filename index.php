@@ -57,6 +57,7 @@
 
 
 <?php
+echo "<script type='text/javascript'>console.log(new Array());</script>";
 $socket = stream_socket_server("tcp://0.0.0.0:5354", $errno, $errstr);
 if (!$socket) {
   echo "$errstr ($errno)<br />\n";
