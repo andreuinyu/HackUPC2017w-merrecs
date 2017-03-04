@@ -10,7 +10,10 @@ var Point = function(lat, lng, time){
             optimized: false,
             zIndex: index,
             animation: google.maps.Animation.DROP,
-            position: {lat: this.lat, lng: this.lng},
+            position: {
+                lat: this.lat,
+                lng: this.lng
+            },
             icon: 'point_animation.gif'
         });
     };
@@ -23,6 +26,7 @@ function string2date(s) {
     var date = date_hour[0].split("/");
     var hour = date_hour[1].split(":");
     d.setDate(parseInt(date[0]));
+    console.log(date[1]);
     d.setMonth(parseInt(date[1]));
     d.setFullYear(parseInt(date[2]));
     d.setHours(parseInt(hour[0]));
