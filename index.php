@@ -65,7 +65,7 @@ if (!$socket) {
     $data_in = fread($conn,50);
     fwrite($conn, 'La fecha y hora actuales es ' . date('n/j/Y g:i a') . "\n");
     fclose($conn);
-    echo "<script type='text/javascript'>newEmergencyHandler("$data_in")</script>";
+    echo "<script type='text/javascript'>newEmergencyHandler({$data_in});</script>";
   }
   fclose($socket);
 }
