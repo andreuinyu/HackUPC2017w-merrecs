@@ -52,6 +52,14 @@
 </div>
 <div id="map"></div>
 
+<script>
+  var doStuff = function () {
+    // Do stuff
+     setTimeout(doStuff, 1000);
+  };
+  doStuff();
+</script>
+
 <script language="javascript" type="text/javascript" src="point.js"></script>
 <script language="javascript" type="text/javascript" src="main.js"></script>
 
