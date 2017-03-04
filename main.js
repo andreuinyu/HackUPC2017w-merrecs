@@ -31,7 +31,7 @@ function readString(pathOfFileToReadFrom){
 }
 
 function get_from_database(){
-    line = readSring('/database.txt');
+    line = readString('/database.txt');
     while (line != null){
         newEmergencyHandler(line.trim());
     }
