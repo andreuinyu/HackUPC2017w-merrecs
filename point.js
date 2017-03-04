@@ -17,9 +17,6 @@ var Point = function(lat, lng, time){
             },
             icon: 'point_animation.gif'
         });
-        if (shown.indexOf(this) == -1) {
-            shown.push(this);
-        }
     };
 }
 
