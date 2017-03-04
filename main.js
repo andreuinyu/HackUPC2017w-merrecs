@@ -28,7 +28,7 @@ function initMap() {
             lng: 2.11
         }
     });
-    //pupas = pupas.sort(Date_Comparator);
+    pupas = pupas.sort(Date_Comparator);
     setMarkers();
 }
 
@@ -40,7 +40,7 @@ function setMarkers() {
             if (shown.indexOf(pupa) == -1){
                 pupa.show(map, i);
                 shown.push(pupa);
-                for(var j = 0; j < shown.length ; ++j){
+                for(var j = 0; j < shown.length ; j++){
                     google.maps.event.addListener(shown[j].marker, 'click', function () {
                         map.panTo(this.getPosition());
                         map.setZoom(11);
