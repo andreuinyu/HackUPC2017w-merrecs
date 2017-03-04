@@ -8,7 +8,6 @@ if (!$socket) {
     fwrite($conn, 'La fecha y hora actuales es ' . date('n/j/Y g:i a') . "\n");
     fclose($conn);
 
-
     $file = "./database.txt";
     $fh = fopen($file,'w');
 
@@ -20,12 +19,9 @@ if (!$socket) {
         $entry .= $data_in;
         $entry .= "\r\n";
      }
-
-
     // using file_put_contents() instead of fwrite()
     file_put_contents($file, $entry, FILE_APPEND);
-
-    fclose($fh);
+    fclose($file);
   }
   fclose($socket);
 }
