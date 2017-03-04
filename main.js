@@ -28,7 +28,7 @@ function initMap() {
             lng: 2.11
         }
     });
-    //pupas = pupas.sort(Date_Comparator);
+    pupas = pupas.sort(Date_Comparator);
     setMarkers();
 }
 
