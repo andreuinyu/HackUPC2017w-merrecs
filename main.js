@@ -10,7 +10,7 @@ var pupas = [
     new Point(41.7, 2.833333, "3/2/2017 1:59:30")
 ];
 var selected_date = new Date("January 1, 2017");
-var markers = [];
+var shown = [];
 
 function Date_Comparator(Point1, Point2) {
     if (Point1.time.getTime() < Point2.time.getTime()) return 1;
@@ -22,7 +22,7 @@ function candiDate(s){ selected_date = new Date(s); }
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 8,
+        zoom: 9,
         center: {
             lat: 41.23,
             lng: 2.11
@@ -32,28 +32,18 @@ function initMap() {
     setMarkers();
 }
 
-function deleteMarkers() {
-    if (markers.length > 0){
-        for (var i = 0; i < markers.length; i++) {
-            if(markers[i]) {
-                markers[i].setMap(null);
-                markers[i] = null;
-            }
-        }
-        markers.lenght = 0;
-    }
-}
-
 function setMarkers() {
-    if(markers){
-        deleteMarkers();
-    }
+
     for (var i = 0; i < pupas.length; i++) {
         var pupa = pupas[i];
-        if (pupa.time.getTime() > selected_date.getTime()) {
-            pupas[i].show(map, i);
+        if ((pupa.time.getTime() > selected_date.getTime())) {
+            if (shown.indexOf(pupa) == -1){
+                pupa.show(map, i);
+            }
         }else{
-            break;
+            pupa.marker.setMap(null);
+            pupa.marker = null;
+            shown.splice(shown.indexOf(pupa),1);
         }
     }
 }

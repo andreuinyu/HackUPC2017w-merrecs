@@ -6,19 +6,19 @@ var Point = function(lat, lng, time){
 
     this.show = function(map, index){
         this.marker = new google.maps.Marker({
+            animation: google.maps.Animation.DROP,
             map: map,
             draggable: false,
             optimized: false,
             zIndex: index,
-            animation: google.maps.Animation.DROP,
             position: {
                 lat: this.lat,
                 lng: this.lng
             },
             icon: 'point_animation.gif'
         });
-        if (!(this.marker in markers)) {
-            markers.push(this.marker);
+        if (shown.indexOf(this) == -1) {
+            shown.push(this);
         }
     };
 }
