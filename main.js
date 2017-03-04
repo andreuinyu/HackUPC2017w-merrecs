@@ -7,7 +7,6 @@ var pupas = [
     ["Sanch", 41.533333, 2.45,3]
 ];
 
-
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 8,
