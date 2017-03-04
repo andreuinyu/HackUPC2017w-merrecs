@@ -35,7 +35,6 @@ var pupas = [
     ["Sanch", 41.533333, 2.45,3]
 ];
 
-
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 8,
@@ -45,18 +44,23 @@ function initMap() {
 }
 
 function setMarkers(map) {
+    var marker;
     for (var i = 0; i < pupas.length; i++) {
         var pupa = pupas[i];
-        var marker = new google.maps.Marker({
+        marker = new google.maps.Marker({
+            map:map,
+            draggable:false,
+            optimized:false,
             position: {lat: pupa[1], lng: pupa[2]},
-            map: map,
-            title: pupa[0],
             zIndex: pupa[3],
-            draggable: false,
-
+            icon: 'point_animation.gif'
         });
        
     }
+<<<<<<< HEAD
 }
 
 
+=======
+}
+>>>>>>> origin/master
