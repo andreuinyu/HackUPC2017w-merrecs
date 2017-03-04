@@ -45,7 +45,8 @@ function initMap() {
             lng: 2.11
         }
     });
-    get_from_database();
+    console.log($("database").text())
+    //get_from_database();
     emergencies = emergencies.sort(Date_Comparator);
     setMarkers();
 }
