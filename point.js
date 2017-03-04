@@ -3,11 +3,12 @@ var Point = function(lat, lng, time){
     this.lng = lng;
     this.time = string2date(time);
 
-    this.show = function(map){
+    this.show = function(map, index){
         var marker = new google.maps.Marker({
             map: map,
             draggable: false,
             optimized: false,
+            zIndex: index,
             animation: google.maps.Animation.DROP,
             position: {lat: this.lat, lng: this.lng},
             icon: 'point_animation.gif'
