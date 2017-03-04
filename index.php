@@ -20,7 +20,7 @@
             left: 1%;
             z-index: 5;
             background-color: #fff;
-			      font-family: 'arial','arial';
+			      font-family: 'Roboto','arial';
             padding: 5px;
             text-align: center;
             line-height: 25px;
