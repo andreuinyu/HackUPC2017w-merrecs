@@ -14,7 +14,7 @@ if (!$socket) {
     $fh = fopen($file,'w+');
 
     // string to put username and passwords
-    $entry = ''
+    $entry = '';
     while(!feof($fh)) {
         // check for empty indexes
         if (!empty($data_in)) {
