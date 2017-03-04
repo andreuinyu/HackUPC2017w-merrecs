@@ -3,7 +3,7 @@
  */
 
 var map;
-var pupas = [
+var emergencies = [
     new Point(41.492009, 2.362017, "1/2/2017 1:59:30"),
     new Point(41.555833, 2.4025, "4/2/2017 1:59:30"),
     new Point(41.533333, 2.45, "6/2/2017 1:59:30"),
@@ -28,18 +28,25 @@ function initMap() {
             lng: 2.11
         }
     });
-    pupas = pupas.sort(Date_Comparator);
+    emergencies = emergencies.sort(Date_Comparator);
+    setMarkers();
+}
+
+function newEmergencyHandler(data_string){
+    var lon_lat_time = data_string.split(";");
+    var new_emergency = new Point(lon_lat_time[0], lon_lat_time[1], lon_lat_time[2]);
+    emergencies.push(new_emergency);
+    emergencies = emergencies.sort(Date_Comparator);
     setMarkers();
 }
 
 function setMarkers() {
-
-    for (var i = 0; i < pupas.length; i++) {
-        var pupa = pupas[i];
-        if ((pupa.time.getTime() > selected_date.getTime())) {
-            if (shown.indexOf(pupa) == -1){
-                pupa.show(map, i);
-                shown.push(pupa);
+    for (var i = 0; i < emergencies.length; i++) {
+        var emergency = emergencies[i];
+        if ((emergency.time.getTime() > selected_date.getTime())) {
+            if (shown.indexOf(emergency) == -1){
+                emergency.show(map, i);
+                shown.push(emergency);
                 for(var j = 0; j < shown.length ; j++){
                     google.maps.event.addListener(shown[j].marker, 'click', function () {
                         map.panTo(this.getPosition());
@@ -48,9 +55,9 @@ function setMarkers() {
                 }
             }
         }else{
-            pupa.marker.setMap(null);
-            pupa.marker = null;
-            shown.splice(shown.indexOf(pupa),1);
+            emergency.marker.setMap(null);
+            emergency.marker = null;
+            shown.splice(shown.indexOf(emergency),1);
         }
     }
 }
