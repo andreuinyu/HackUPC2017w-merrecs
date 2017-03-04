@@ -28,25 +28,27 @@ function initMap() {
             lng: 2.11
         }
     });
-    //pupas = pupas.sort(Date_Comparator);
+    pupas = pupas.sort(Date_Comparator);
     setMarkers();
 }
 
-function setMarkers() {
+function newPointHandler(s){
 
+}
+
+function setMarkers() {
     for (var i = 0; i < pupas.length; i++) {
         var pupa = pupas[i];
         if ((pupa.time.getTime() > selected_date.getTime())) {
             if (shown.indexOf(pupa) == -1){
                 pupa.show(map, i);
                 shown.push(pupa);
-                google.maps.event.addListener(pupa.marker, 'click', function () {
-                    map.setCenter({
-                        lat: pupa.lat,
-                        lng: pupa.lng
+                for(var j = 0; j < shown.length ; ++j){
+                    google.maps.event.addListener(shown[j].marker, 'click', function () {
+                        map.panTo(this.getPosition());
+                        map.setZoom(11);
                     });
-                    map.setZoom(11);
-                });
+                }
             }
         }else{
             pupa.marker.setMap(null);
