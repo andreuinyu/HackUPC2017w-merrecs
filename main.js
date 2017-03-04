@@ -9,7 +9,7 @@ var pupas = [
     new Point(41.533333, 2.45, "6/2/2017 1:59:30"),
     new Point(41.7, 2.833333, "3/2/2017 1:59:30")
 ];
-var selected_date;
+var selected_date = new Date("January 1, 2017");
 var markers = [];
 
 function Date_Comparator(Point1, Point2) {
@@ -29,6 +29,7 @@ function initMap() {
         }
     });
     pupas = pupas.sort(Date_Comparator);
+    setMarkers();
 }
 
 function deleteMarkers() {

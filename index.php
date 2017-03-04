@@ -33,7 +33,7 @@
 <div id="floating-panel">
     <p>
         Emergencies since
-        <input id="date" type="date" onchange="candiDate(this.value)"/>
+        <input id="date" value="2017-01-01" type="date" onchange="candiDate(this.value)"/>
         <input id="button" type="button" onclick="setMarkers()" value="Find" />
         <script>
             document.getElementById("date").addEventListener("keyup", function(event) {
