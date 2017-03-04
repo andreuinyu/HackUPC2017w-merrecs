@@ -2,9 +2,10 @@ var Point = function(lat, lng, time){
     this.lat = lat;
     this.lng = lng;
     this.time = string2date(time);
+    this.marker;
 
     this.show = function(map, index){
-        var marker = new google.maps.Marker({
+        this.marker = new google.maps.Marker({
             map: map,
             draggable: false,
             optimized: false,
@@ -16,7 +17,9 @@ var Point = function(lat, lng, time){
             },
             icon: 'point_animation.gif'
         });
-        markers.push(marker);
+        if (!(this.marker in markers)) {
+            markers.push(this.marker);
+        }
     };
 }
 
