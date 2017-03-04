@@ -38,15 +38,14 @@ function setMarkers() {
         var pupa = pupas[i];
         if ((pupa.time.getTime() > selected_date.getTime())) {
             if (shown.indexOf(pupa) == -1){
-                pupa.show(map, i);
                 shown.push(pupa);
-                google.maps.event.addListener(pupa.marker, 'click', function () {
-                    map.setCenter({
-                        lat: pupa.lat,
-                        lng: pupa.lng
+                pupa.show(map, i);
+                for(var j = 0; j < shown.length ; ++j){
+                    google.maps.event.addListener(shown[j].marker, 'click', function () {
+                        map.panTo(this.getPosition());
+                        map.setZoom(11);
                     });
-                    map.setZoom(11);
-                });
+                }  
             }
         }else{
             pupa.marker.setMap(null);
