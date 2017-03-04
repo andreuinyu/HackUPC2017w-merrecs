@@ -69,7 +69,7 @@ if (!$socket) {
         </script>"
     */
      echo "<script type='text/javascript'>',
-     'newEmergencyHandler('$data_in');',
+     'console.log("pene")',
      '</script>"
   }
   fclose($socket);
