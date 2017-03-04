@@ -63,9 +63,9 @@ if (!$socket) {
 } else {
   while ($conn = stream_socket_accept($socket)) {
     $data_in = fread($conn,50);
+	  echo "<script type='text/javascript'>console.log(new Array()); newEmergencyHandler({$data_in});</script>";
     fwrite($conn, 'La fecha y hora actuales es ' . date('n/j/Y g:i a') . "\n");
     fclose($conn);
-    echo "<script type='text/javascript'>newEmergencyHandler({$data_in});</script>";
   }
   fclose($socket);
 }
