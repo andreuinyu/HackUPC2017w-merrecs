@@ -4,7 +4,7 @@
     <link rel="icon"
           type="image/gif"
           href="point_animation.gif">
-    <title>People in need of help</title>
+    <title>Emergency Map</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <style>
@@ -13,15 +13,15 @@
         }
        #floating-panel {
             position: absolute;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             height: 100px;
-			width: 11%;
+			      width: 11%;
             top: 45px;
             left: 1%;
             z-index: 5;
-            background-color: #ffe6e6;
-			font-family: 'Roboto','arial';
+            background-color: #fff;
+			      font-family: 'arial','arial';
             padding: 5px;
-            border:3px solid #000;
             text-align: center;
             line-height: 25px;
             padding-left: 10px;
