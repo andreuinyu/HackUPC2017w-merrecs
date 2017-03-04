@@ -9,7 +9,6 @@ if (!$socket) {
     fclose($conn);
 
     $file = "./database.txt";
-    $fh = fopen($file,'w');
 
     // string to put username and passwords
     $entry = '';// file_get_contents($file);
@@ -21,7 +20,6 @@ if (!$socket) {
      }
     // using file_put_contents() instead of fwrite()
     file_put_contents($file, $entry, FILE_APPEND);
-    fclose($file);
   }
   fclose($socket);
 }
