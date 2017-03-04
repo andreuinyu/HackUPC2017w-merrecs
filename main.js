@@ -28,15 +28,12 @@ function initMap() {
             lng: 2.11
         }
     });
-    pupas = pupas.sort(Date_Comparator);
+    //pupas = pupas.sort(Date_Comparator);
     setMarkers();
 }
 
-function newPointHandler(s){
-
-}
-
 function setMarkers() {
+
     for (var i = 0; i < pupas.length; i++) {
         var pupa = pupas[i];
         if ((pupa.time.getTime() > selected_date.getTime())) {
