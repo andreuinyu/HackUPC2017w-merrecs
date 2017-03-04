@@ -11,21 +11,20 @@ if (!$socket) {
 
 
     $file = "./database.txt";
-    $fh = fopen($file,'w+');
+    $fh = fopen($file,'rw+');
 
     // string to put username and passwords
-    $entry = ''
-    while(!feof($fh)) {
-        // check for empty indexes
-        if (!empty($data_in)) {
+    $entry = file_get_contents($file);
+    // check for empty indexes
+    if (!empty($data_in)) {
 
-            $entry .= $data_in;
-            $entry .= "\r\n";
-         }
-    }
+        $entry .= $data_in;
+        $entry .= "\r\n";
+     }
+
 
     // using file_put_contents() instead of fwrite()
-    file_put_contents('./database.txt', $entry);
+    file_put_contents($file, $entry);
 
     fclose($fh);
   }
