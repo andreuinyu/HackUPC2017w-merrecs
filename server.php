@@ -15,15 +15,11 @@ if (!$socket) {
 
     // string to put username and passwords
     $entry = '';
-    while(!feof($fh)) {
-        // check for empty indexes
-        if (!empty($data_in)) {
-
-            $entry .= $data_in;
-            $entry .= "\r\n";
-         }
+    // check for empty indexes
+    if (!empty($data_in)) {
+        $entry .= $data_in;
+        $entry .= "\r\n";
     }
-
     // using file_put_contents() instead of fwrite()
     file_put_contents('./database.txt', $entry);
 
