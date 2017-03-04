@@ -68,6 +68,9 @@ if (!$socket) {
         newEmergencyHandler('<?php Print($data_in); ?>');
         </script>"
     */
+     echo '<script type="text/javascript">',
+     'newEmergencyHandler('<?php Print($data_in); ?>');',
+     '</script>'
   }
   fclose($socket);
 }
