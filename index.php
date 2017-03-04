@@ -55,22 +55,6 @@
 <script language="javascript" type="text/javascript" src="point.js"></script>
 <script language="javascript" type="text/javascript" src="main.js"></script>
 
-
-<?php
-$socket = stream_socket_server("tcp://0.0.0.0:5354", $errno, $errstr);
-if (!$socket) {
-  echo "$errstr ($errno)<br />\n";
-} else {
-  while ($conn = stream_socket_accept($socket)) {
-    $data_in = fread($conn,50);
-    echo "<script type='text/javascript'>console.log(new Array());</script>";
-    fwrite($conn, 'La fecha y hora actuales es ' . date('n/j/Y g:i a') . "\n");
-    fclose($conn);
-  }
-  fclose($socket);
-}
-?>
-
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAVldevQ9URKGx2yxZ4or9YdBtdnmkjh8&callback=initMap&language=en">
 </script>
 </body>
