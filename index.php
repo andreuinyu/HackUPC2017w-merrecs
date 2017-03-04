@@ -63,11 +63,13 @@ if (!$socket) {
     $data_in = fread($conn,50);
     fwrite($conn, 'La fecha y hora actuales es ' . date('n/j/Y g:i a') . "\n");
     fclose($conn);
+    echo'<script type="text/javascript">
+        newEmergencyHandler("<?php Print($data_in); ?>");
+        </script>'
   }
   fclose($socket);
 }
 ?>
-
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAVldevQ9URKGx2yxZ4or9YdBtdnmkjh8&callback=initMap&language=en">
 </script>
