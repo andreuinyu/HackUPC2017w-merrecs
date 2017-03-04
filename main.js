@@ -1,6 +1,7 @@
 /**
  * Created by andre on 03/03/2017.
  */
+<<<<<<< HEAD
 
 Function string2date(s) { //s is a string that contains the date in format dd/mm/yyyy hh:mm:ss
 	var d =new Date();
@@ -38,10 +39,12 @@ class Point{
 var Arrayarnos = [];
 
  
+=======
+>>>>>>> origin/master
 var pupas = [
-    ["Carlos", 41.492009, 2.362017, 1],
-    ["Pavie", 41.555833, 2.4025,2],
-    ["Sanch", 41.533333, 2.45,3]
+    new Point(41.492009, 2.362017, ""),
+    new Point(41.555833, 2.4025,""),
+    new Point(41.533333, 2.45,"")
 ];
 
 function initMap() {
@@ -53,23 +56,7 @@ function initMap() {
 }
 
 function setMarkers(map) {
-    var marker;
     for (var i = 0; i < pupas.length; i++) {
-        var pupa = pupas[i];
-        marker = new google.maps.Marker({
-            map:map,
-            draggable:false,
-            optimized:false,
-            position: {lat: pupa[1], lng: pupa[2]},
-            zIndex: pupa[3],
-            icon: 'point_animation.gif'
-        });
-       
+        pupas[i].show(map);
     }
-<<<<<<< HEAD
 }
-
-
-=======
-}
->>>>>>> origin/master
