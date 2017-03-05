@@ -56,7 +56,7 @@
 <script>
   var poll = function () {
      get_from_database();
-
+     console.log("new emergency");
      setTimeout(poll, 1000);
   };
   poll();
