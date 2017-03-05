@@ -1,5 +1,5 @@
 <?php
-$socket = socket_create_listen("tcp://0.0.0.0:5354");
+$socket = socket_create_listen(5354);
 if (!$socket) {
   echo "\n";
 } else {
