@@ -24,18 +24,6 @@ function Date_Comparator(Point1, Point2) {
 
 function candiDate(s){ selected_date = new Date(s); }
 
-function get_from_database(){
-    var obj = document.getElementById("database");
-    var raw_str = obj.contentWindow.document.body.childNodes[0].innerHTML;
-    while (raw_str.indexOf("\r") >= 0) {
-        raw_str = raw_str.replace("\r", "");
-    }
-    var lines = raw_str.split("\n");
-    for (var i = 0; i < lines.length;i++){
-        newEmergencyHandler(lines[i]);
-    }
-}
-
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 9,
@@ -47,16 +35,28 @@ function initMap() {
     //var text = $('database.txt').text()
     //console.log(text);
     get_from_database();
+}
+
+function get_from_database(){
+    var rawtxt = $('#database').contents().find('html').find('body').find('pre').text();
+    var lines = rawtxt.split("\n");
+    for (var i = 0; i < lines.length; i++){
+        if (lines[i] != "") {
+            newEmergencyHandler(lines[i]);
+        }
+    }
     emergencies = emergencies.sort(Date_Comparator);
     setMarkers();
 }
 
 function newEmergencyHandler(data_string){
     var lon_lat_time = data_string.split(";");
-    var new_emergency = new Point(lon_lat_time[0], lon_lat_time[1], lon_lat_time[2]);
+    console.log(lon_lat_time);
+    var new_emergency = new Point(
+        parseFloat(lon_lat_time[0]),
+        parseFloat(lon_lat_time[1]),
+        lon_lat_time[2]);
     emergencies.push(new_emergency);
-    emergencies = emergencies.sort(Date_Comparator);
-    setMarkers();
 }
 
 function setMarkers() {

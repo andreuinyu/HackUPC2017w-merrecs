@@ -55,7 +55,7 @@
 
 <script>
   var doStuff = function () {
-     console.log("stuff");
+     get_from_database();
      setTimeout(doStuff, 1000);
   };
   doStuff();
