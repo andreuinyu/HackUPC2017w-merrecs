@@ -54,7 +54,9 @@ function newEmergencyHandler(data_string){
         parseFloat(lon_lat_time[0]),
         parseFloat(lon_lat_time[1]),
         lon_lat_time[2]);
-    emergencies.push(new_emergency);
+    if (shown.indexOf(new_emergency) == -1) {
+        emergencies.push(new_emergency);
+    }
 }
 
 function setMarkers() {
