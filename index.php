@@ -58,7 +58,7 @@
 <script language="javascript" type="text/javascript" src="main.js">
 var poll = function () {
     console.log("new emergency");
-    get_from_database();
+    //get_from_database();
     setTimeout(poll, 1000);
   };
   poll();

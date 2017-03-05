@@ -43,9 +43,6 @@ function get_from_database(){
             newEmergencyHandler(lines[i]);
         }
     }
-    $.ajax({
-        url:'empty_file.php',
-    });
     emergencies = emergencies.sort(Date_Comparator);
     console.log(emergencies);
     setMarkers();
