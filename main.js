@@ -32,10 +32,10 @@ function initMap() {
             lng: 2.11
         }
     });
-    get_from_database();
+    get_from_database(true);
 }
 
-function get_from_database(){
+function get_from_database(boot){
     var iframe = document.createElement('iframe');
     iframe.style="display: none;";
     iframe.src="/database.txt";
@@ -47,7 +47,7 @@ function get_from_database(){
     var lines = rawtxt.split("\n");
     for (var i = 0; i < lines.length; i++){
         if (lines[i] != "") {
-            newEmergencyHandler(lines[i]);
+            newEmergencyHandler(lines[i], boot);
         }
     }
     emergencies = emergencies.sort(Date_Comparator);
@@ -55,7 +55,7 @@ function get_from_database(){
     setMarkers();
 }
 
-function newEmergencyHandler(data_string){
+function newEmergencyHandler(data_string, boot){
     var lon_lat_time = data_string.split(";");
     var new_emergency = new Point(
         parseFloat(lon_lat_time[0]),
@@ -70,7 +70,7 @@ function newEmergencyHandler(data_string){
     }
     if(add){
         emergencies.push(new_emergency);
-        window.location.reload();
+        if (!(boot)){ window.location.reload(); }
     }
 }
 
