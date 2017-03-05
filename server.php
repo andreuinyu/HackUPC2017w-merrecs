@@ -1,5 +1,5 @@
 <?php
-$timeout = 300000;
+$timeout = 2100000000;
 $socket = stream_socket_server("tcp://0.0.0.0:5354", $errno, $errstr);
 if (!$socket) {
   echo "$errstr ($errno)<br />\n";
