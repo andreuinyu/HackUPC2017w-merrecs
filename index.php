@@ -57,9 +57,9 @@
 <script language="javascript" type="text/javascript" src="point.js"></script>
 <script language="javascript" type="text/javascript" src="main.js">
 var poll = function () {
-     get_from_database();
-     console.log("new emergency");
-     setTimeout(poll, 1000);
+    console.log("new emergency");
+    get_from_database();
+    setTimeout(poll, 1000);
   };
   poll();
 </script>
