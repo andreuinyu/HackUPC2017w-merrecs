@@ -1,1 +1,1 @@
-file_put_contents("filelist.txt", "");
+file_put_contents("database.txt", "");
