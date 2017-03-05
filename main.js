@@ -15,7 +15,6 @@ var emergencies = [];
 */
 var selected_date = new Date("January 1, 2017");
 var shown = [];
-var boot = true;
 
 function Date_Comparator(Point1, Point2) {
     if (Point1.time.getTime() < Point2.time.getTime()) return 1;
@@ -33,13 +32,10 @@ function initMap() {
             lng: 2.11
         }
     });
-    get_from_database(boot);
-    if (!boot){
-        window.location.reload();
-    }
+    get_from_database();
 }
 
-function get_from_database(boot){
+function get_from_database(){
     var iframe = document.createElement('iframe');
     iframe.style="display: none;";
     iframe.src="/database.txt";
@@ -51,18 +47,15 @@ function get_from_database(boot){
     var lines = rawtxt.split("\n");
     for (var i = 0; i < lines.length; i++){
         if (lines[i] != "") {
-            newEmergencyHandler(lines[i], boot);
+            newEmergencyHandler(lines[i]);
         }
-    }
-    if (!boot){
-        window.location.reload();
     }
     emergencies = emergencies.sort(Date_Comparator);
     console.log(emergencies);
     setMarkers();
 }
 
-function newEmergencyHandler(data_string, boot){
+function newEmergencyHandler(data_string){
     var lon_lat_time = data_string.split(";");
     var new_emergency = new Point(
         parseFloat(lon_lat_time[0]),
