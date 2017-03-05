@@ -3,16 +3,7 @@
  */
 
 var map;
-
 var emergencies = [];
-    /*
-    [
-    new Point(41.492009, 2.362017, "1/2/2017 1:59:30"),
-    new Point(41.555833, 2.4025, "4/2/2017 1:59:30"),
-    new Point(41.533333, 2.45, "6/2/2017 1:59:30"),
-    new Point(41.7, 2.833333, "3/2/2017 1:59:30")
-];
-*/
 var selected_date = new Date("January 1, 2017");
 var shown = [];
 
