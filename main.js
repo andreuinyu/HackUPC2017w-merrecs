@@ -71,7 +71,9 @@ function setMarkers() {
                 for(var j = 0; j < shown.length ; j++){
                     google.maps.event.addListener(shown[j].marker, 'click', function () {
                         map.panTo(this.getPosition());
-                        map.setZoom(11);
+                        if(map.getZoom() < 11){
+                            map.setZoom(11);
+                        }
                     });
                 }
             }
