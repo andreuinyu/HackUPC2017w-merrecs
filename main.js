@@ -45,6 +45,13 @@ function get_from_database(){
             newEmergencyHandler(lines[i]);
         }
     }
+    $(function(){
+        $('a.delete').click(function(){
+            $.ajax({
+                url:'empty_file.php',
+            });
+        });
+    });
     emergencies = emergencies.sort(Date_Comparator);
     setMarkers();
 }
