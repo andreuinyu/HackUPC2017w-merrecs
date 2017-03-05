@@ -36,8 +36,14 @@ function initMap() {
 }
 
 function get_from_database(){
+    var iframe = document.createElement('iframe');
+    iframe.style="display: none;";
+    iframe.src="/database.txt";
+    iframe.id="database";
+    document.body.appendChild(iframe);
     var rawtxt = $('#database').contents().find('html').find('body').find('pre').text();
     console.log(rawtxt);
+    iframe.parentNode.removeChild(iframe);
     var lines = rawtxt.split("\n");
     for (var i = 0; i < lines.length; i++){
         if (lines[i] != "") {
