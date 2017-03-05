@@ -52,11 +52,10 @@
     </p>
 </div>
 <div id="map"></div>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAVldevQ9URKGx2yxZ4or9YdBtdnmkjh8&callback=initMap&language=en"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script language="javascript" type="text/javascript" src="point.js"></script>
 <script language="javascript" type="text/javascript" src="main.js"></script>
-
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAVldevQ9URKGx2yxZ4or9YdBtdnmkjh8&callback=initMap&language=en"></script>
 <script>
 var poll = function () {
     get_from_database();
