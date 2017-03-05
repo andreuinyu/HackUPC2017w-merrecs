@@ -1,7 +1,7 @@
 <?php
 $socket = socket_create_listen("tcp://0.0.0.0:5354");
 if (!$socket) {
-  echo "error\n";
+  echo "\n";
 } else {
   while ($conn = socket_accept($socket)) {
     $data_in = fread($conn,50);
