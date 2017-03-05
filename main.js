@@ -45,20 +45,16 @@ function get_from_database(){
             newEmergencyHandler(lines[i]);
         }
     }
-    $(function(){
-        $('a.delete').click(function(){
-            $.ajax({
-                url:'empty_file.php',
-            });
-        });
+    $.ajax({
+        url:'empty_file.php',
     });
     emergencies = emergencies.sort(Date_Comparator);
+    console.log(emergencies);
     setMarkers();
 }
 
 function newEmergencyHandler(data_string){
     var lon_lat_time = data_string.split(";");
-    console.log(lon_lat_time);
     var new_emergency = new Point(
         parseFloat(lon_lat_time[0]),
         parseFloat(lon_lat_time[1]),
