@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<iframe id="database" src="database.txt" style="display: none;"></iframe>
+<iframe id="database" src="/database.txt" style="display: none;"></iframe>
 <head>
     <link rel="icon"
           type="image/gif"
@@ -55,7 +55,7 @@
 
 <script>
   var doStuff = function () {
-    // Do stuff
+     console.log("stuff");
      setTimeout(doStuff, 1000);
   };
   doStuff();
