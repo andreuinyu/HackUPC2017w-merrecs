@@ -54,11 +54,12 @@
 <div id="map"></div>
 
 <script>
-  var doStuff = function () {
+  var poll = function () {
      get_from_database();
-     setTimeout(doStuff, 1000);
+
+     setTimeout(poll, 1000);
   };
-  doStuff();
+  poll();
 </script>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>

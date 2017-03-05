@@ -32,8 +32,6 @@ function initMap() {
             lng: 2.11
         }
     });
-    //var text = $('database.txt').text()
-    //console.log(text);
     get_from_database();
 }
 
