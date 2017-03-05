@@ -61,7 +61,14 @@ function newEmergencyHandler(data_string){
         parseFloat(lon_lat_time[0]),
         parseFloat(lon_lat_time[1]),
         lon_lat_time[2]);
-    if (emergencies.indexOf(new_emergency) == -1) {
+    var add = true;
+    for (var i = 0; i < emergencies.length; i++){
+        add = (emergencies[i].lat != new_emergency.lat) || (emergencies[i].lng != new_emergency.lng);
+        if (!(add)){
+            break;
+        }
+    }
+    if(add){
         emergencies.push(new_emergency);
         //window.location.reload();
     }
