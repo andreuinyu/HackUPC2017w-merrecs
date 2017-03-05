@@ -17,9 +17,9 @@ if (!$socket) {
 
         $entry .= $data_in;
         $entry .= "\r\n";
+        // using file_put_contents() instead of fwrite()
+        file_put_contents($file, $entry, FILE_APPEND);
      }
-    // using file_put_contents() instead of fwrite()
-    file_put_contents($file, $entry, FILE_APPEND);
   }
   fclose($socket);
 }
