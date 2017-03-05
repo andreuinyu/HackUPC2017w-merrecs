@@ -58,7 +58,8 @@
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAVldevQ9URKGx2yxZ4or9YdBtdnmkjh8&callback=initMap&language=en"></script>
 <script>
 var poll = function () {
-    get_from_database(false);
+    boot = false;
+    get_from_database(boot);
     setTimeout(poll, 4500);
   };
   poll();
