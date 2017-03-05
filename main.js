@@ -55,7 +55,7 @@ function newEmergencyHandler(data_string){
         parseFloat(lon_lat_time[0]),
         parseFloat(lon_lat_time[1]),
         lon_lat_time[2]);
-    if (shown.indexOf(new_emergency) == -1) {
+    if (emergencies.indexOf(new_emergency) == -1) {
         emergencies.push(new_emergency);
         //window.location.reload();
     }
