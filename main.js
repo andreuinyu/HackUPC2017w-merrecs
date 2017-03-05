@@ -37,6 +37,7 @@ function initMap() {
 
 function get_from_database(){
     var rawtxt = $('#database').contents().find('html').find('body').find('pre').text();
+    console.log(rawtxt);
     var lines = rawtxt.split("\n");
     for (var i = 0; i < lines.length; i++){
         if (lines[i] != "") {
@@ -56,6 +57,7 @@ function newEmergencyHandler(data_string){
         lon_lat_time[2]);
     if (shown.indexOf(new_emergency) == -1) {
         emergencies.push(new_emergency);
+        window.location.reload();
     }
 }
 

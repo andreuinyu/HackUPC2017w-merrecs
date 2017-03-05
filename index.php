@@ -59,7 +59,7 @@
 <script>
 var poll = function () {
     get_from_database();
-    setTimeout(poll, 1000);
+    setTimeout(poll, 4500);
   };
   poll();
 </script>
