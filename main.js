@@ -15,6 +15,7 @@ var emergencies = [];
 */
 var selected_date = new Date("January 1, 2017");
 var shown = [];
+var boot = true;
 
 function Date_Comparator(Point1, Point2) {
     if (Point1.time.getTime() < Point2.time.getTime()) return 1;
@@ -32,7 +33,10 @@ function initMap() {
             lng: 2.11
         }
     });
-    get_from_database(true);
+    get_from_database(boot);
+    if (!boot){
+        window.location.reload();
+    }
 }
 
 function get_from_database(boot){
@@ -49,6 +53,9 @@ function get_from_database(boot){
         if (lines[i] != "") {
             newEmergencyHandler(lines[i], boot);
         }
+    }
+    if (!boot){
+        window.location.reload();
     }
     emergencies = emergencies.sort(Date_Comparator);
     console.log(emergencies);
@@ -70,7 +77,6 @@ function newEmergencyHandler(data_string, boot){
     }
     if(add){
         emergencies.push(new_emergency);
-        if (!(boot)){ window.location.reload(); }
     }
 }
 
