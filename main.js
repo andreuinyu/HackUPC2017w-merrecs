@@ -70,7 +70,7 @@ function newEmergencyHandler(data_string){
     }
     if(add){
         emergencies.push(new_emergency);
-        //window.location.reload();
+        window.location.reload();
     }
 }
 
