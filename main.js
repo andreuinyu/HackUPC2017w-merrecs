@@ -46,7 +46,6 @@ function get_from_database(){
     }
     emergencies = emergencies.sort(Date_Comparator);
     console.log(emergencies);
-    setMarkers();
 }
 
 function newEmergencyHandler(data_string){
@@ -57,7 +56,7 @@ function newEmergencyHandler(data_string){
         lon_lat_time[2]);
     var add = true;
     for (var i = 0; i < emergencies.length; i++){
-        add = (emergencies[i].lat != new_emergency.lat) || (emergencies[i].lng != new_emergency.lng);
+        add = !((emergencies[i].lat == new_emergency.lat) && (emergencies[i].lng == new_emergency.lng));
         if (!(add)){
             break;
         }
@@ -65,6 +64,7 @@ function newEmergencyHandler(data_string){
     if(add){
         emergencies.push(new_emergency);
     }
+    setMarkers();
 }
 
 function setMarkers() {
