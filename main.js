@@ -33,6 +33,7 @@ function initMap() {
         }
     });
     get_from_database();
+    setMarkers();
 }
 
 function get_from_database(){
@@ -64,7 +65,6 @@ function newEmergencyHandler(data_string){
     if(add){
         emergencies.push(new_emergency);
     }
-    setMarkers();
 }
 
 function setMarkers() {
